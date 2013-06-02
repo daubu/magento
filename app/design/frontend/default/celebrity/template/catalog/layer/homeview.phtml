@@ -1,0 +1,24 @@
+<?php if($this->canShowBlock()): ?>
+<div class="box layered-nav">
+   <div class="box-content forlayeredonly">
+   <?php echo $this->getStateHtml() ?>
+   <?php if($this->canShowOptions()): ?>
+       <div class="narrow-by">
+<div class="arrowlistmenu">          
+  
+           <?php $_filters = $this->getFilters() ?>
+           <?php foreach ($_filters as $_filter): ?>
+           <?php if($_filter->getItemsCount()): ?>
+    <?php if($_filter->getName() != "Category"){ ?>
+           <h3 class="menuheader expandable"><?php echo $this->__($_filter->getName()) ?></h3>
+           <?php echo str_replace(array('?','/?'),array('products.html?','/products.html?'),$_filter->getHtml()) ?>
+      
+      
+           <?php } endif; ?>
+           <?php endforeach; ?>
+  
+       </div></div>
+       <?php endif; ?>
+   </div>
+</div>
+<?php endif; ?>
