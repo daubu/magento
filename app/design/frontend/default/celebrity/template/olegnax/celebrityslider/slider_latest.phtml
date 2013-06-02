@@ -3,25 +3,50 @@
 <?php if (($_products = $this->getLatestCollection()) && $_products->getSize()): ?>
 <div class="slider-container">
 <div class="clearfix">
-	<h2 class="subtitle"><?php echo $this->__('Sản phẩm nổi bật') ?></h2>
-	 
+	<h2 class="subtitle"><?php echo $this->__('Sản phẩm mới') ?></h2>
+	<a href="#" class="jcarousel-prev-horizontal" id="celebrity_carousel_prev"></a>
+	<a href="#" class="jcarousel-next-horizontal" id="celebrity_carousel_next"></a>
 </div>
-<div class="home-pro">
-    <ul class="products-grid">
-    <?php foreach ($_products->getItems() as $_product): ?>
-        <li  class="item">
-            <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>" class="product-image">
-                <?php echo $this->helper('celebritysettings')->getLabel($_product);  ?>
-                <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(220, 330) ?>" width="220" height="330" alt="<?php echo $this->htmlEscape($_product->getName()) ?>" /><em><?php echo $this->__('Details'); ?></em><span></span></a>
-            <div class="info">
-                <h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>"><?php echo $this->htmlEscape($_product->getName()) ?></a></h2>
-                <?php echo $this->getPriceHtml($_product, true) ?>
-            </div>
-        </li>
-    <?php endforeach; ?>
-    </ul>
+<ul id="celebrity_carousel" class="products-grid jcarousel-skin-tango clearfix">
+<?php foreach ($_products->getItems() as $_product): ?>
+    <li class="item clearfix">
+	    <a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>" class="product-image">
+		    <?php echo $this->helper('celebritysettings')->getLabel($_product);  ?>
+		    <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(220, 330) ?>" width="220" height="330" alt="<?php echo $this->htmlEscape($_product->getName()) ?>" /><em><?php echo $this->__('Details'); ?></em><span></span></a>
+        <div class="actions">
+            <?php if(!$_product->isSaleable()): ?>
+                <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+            <?php endif; ?>
+        </div>
+	    <div class="info">
+		    <h3 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_product->getName()) ?>"><?php echo $this->htmlEscape($_product->getName()) ?></a></h3>
+		    <?php echo $this->getPriceHtml($_product, true, '-slider') ?>
+	    </div>
+    </li>
+<?php endforeach; ?>
+</ul>
 </div>
-</div>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
 
+	function mycarousel_initCallback(carousel) {
+	    jQuery('#celebrity_carousel_next').bind('click', function() {
+	        carousel.next();
+	        return false;
+	    });
+	    jQuery('#celebrity_carousel_prev').bind('click', function() {
+	        carousel.prev();
+	        return false;
+	    });
+	};
+
+    $('#celebrity_carousel').jcarousel({
+	    scroll: 1,
+    	initCallback: mycarousel_initCallback,
+	    buttonNextHTML: null,
+	    buttonPrevHTML: null
+    });
+});
+</script>
 <?php endif; ?>
 <!-- SLIDER EOF -->

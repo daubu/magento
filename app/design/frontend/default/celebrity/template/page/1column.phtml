@@ -39,7 +39,7 @@
 <head>
 	<?php echo $this->getChildHtml('head') ?>
 </head>
-<body class="<?php echo Mage::getStoreConfig('celebritysettings/celebritysettings_appearance/width') . ' ' . Mage::getStoreConfig('celebritysettings/celebritysettings_appearance/style'); echo $this->getBodyClass()?' '.$this->getBodyClass().'':'' ?>">
+<body  itemscope itemtype="http://schema.org/WebPage" class="<?php echo Mage::getStoreConfig('celebritysettings/celebritysettings_appearance/width') . ' ' . Mage::getStoreConfig('celebritysettings/celebritysettings_appearance/style'); echo $this->getBodyClass()?' '.$this->getBodyClass().'':'' ?>">
 
 <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you support IE 6.
      chromium.org/developers/how-tos/chrome-frame-getting-started -->
@@ -70,10 +70,10 @@
 </div>
 
 <?php
-//$bottom_block = Mage::getModel('cms/block')->load('celebrity_bottom_support');
-//if($bottom_block->getIsActive()){
-//    echo '<div class="site-block bottom">'.$this->getLayout()->createBlock('cms/block')->setBlockId('celebrity_bottom_support')->toHtml().'</div>';
-//}
+$bottom_block = Mage::getModel('cms/block')->load('celebrity_bottom_support');
+if($bottom_block->getIsActive()){
+    echo '<div class="site-block bottom">'.$this->getLayout()->createBlock('cms/block')->setBlockId('celebrity_bottom_support')->toHtml().'</div>';
+}
 ?>
 
 <?php echo $this->getAbsoluteFooter() ?>

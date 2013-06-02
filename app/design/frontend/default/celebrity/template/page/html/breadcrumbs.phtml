@@ -27,15 +27,15 @@
 <!-- breadcrumbs BOF -->
 <?php if($crumbs && is_array($crumbs)): ?>
 <div class="breadcrumbs">
-    <ul>
+    <ul itemprop="breadcrumb">
         <?php foreach($crumbs as $_crumbName=>$_crumbInfo): ?>
             <li class="<?php echo $_crumbName ?>">
             <?php if($_crumbInfo['link']): ?>
-                <a href="<?php echo $_crumbInfo['link'] ?>" title="<?php echo $this->htmlEscape($_crumbInfo['title']) ?>"><?php echo $this->htmlEscape($_crumbInfo['label']) ?></a>
+                <a href="<?php echo $_crumbInfo['link'] ?>" title="<?php echo $this->htmlEscape($_crumbInfo['title']) ?>"><?php echo $this->htmlEscape($_crumbInfo['label']) ?></a> <span> > </span>
             <?php elseif($_crumbInfo['last']): ?>
-                <strong><?php echo $this->htmlEscape($_crumbInfo['label']) ?></strong>
+                <strong><?php echo $this->htmlEscape($_crumbInfo['label']) ?></strong> <span> > </span>
             <?php else: ?>
-                <?php echo $this->htmlEscape($_crumbInfo['label']) ?>
+                <?php echo $this->htmlEscape($_crumbInfo['label']) ?>  <span> > </span>
             <?php endif; ?>
             <?php if(!$_crumbInfo['last']): ?>
                 <span></span>

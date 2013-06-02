@@ -50,10 +50,10 @@
                 <h1 itemprop="name"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
             </div>
 
-            <?php //echo $this->getChildHtml('alert_urls') ?>
-            <?php //echo $this->getChildHtml('product_type_data') ?>
-            <?php //echo $this->getTierPriceHtml() ?>
-            <?php //echo $this->getChildHtml('extrahint') ?>
+            <?php echo $this->getChildHtml('alert_urls') ?>
+            <?php echo $this->getChildHtml('product_type_data') ?>
+            <?php echo $this->getTierPriceHtml() ?>
+            <?php echo $this->getChildHtml('extrahint') ?>
 
             <?php if ($_product->getShortDescription()):?>
             <div class="short-description">
@@ -61,12 +61,12 @@
             </div>
             <?php endif;?>
 			
-             <span itemprop="manufacturer"><?php echo $_product->getAttributeText('manufacturer') ?> </span>
+             <span itemprop="manufacturer"><?php echo $_product->getAttributeText('brand') ?> </span>
              <span itemprop="sku"> <?php echo $this->htmlEscape($_product->getSku()) ?>  </span>
              <div  itemprop="offers" itemscope itemtype="http://schema.org/Offer"><span itemprop="price"><?php 
 				echo Mage::helper('core')->currency($_product->getPrice(),true,false);				
 			?></span><meta itemprop="priceCurrency" content="VND" /></div>
-            
+            <img itemprop="image" src="<?php echo Mage::helper('catalog/image')->init(Mage::registry('current_product'), 'small_image')->resize(70,93);?>" />
              <?php 
 			 	 $productSku = $_product->getSku();
 				$product = Mage::getModel('catalog/product');
