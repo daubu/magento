@@ -154,7 +154,7 @@
                     <item>0</item>
                 </stores>
             </item>
-	        <item>
+	        <!--<item>
                 <title>Celebrity Bottom Support block</title>
                 <identifier>celebrity_bottom_support</identifier>
                 <content><![CDATA[<div class="site-block bottom"><a href="http://olegnax.com/products/magento/"><img src="{{media url="olegnax/celebrity/live_support.png"}}" alt="" /></a></div>]]></content>
@@ -162,7 +162,7 @@
                 <stores>
                     <item>0</item>
                 </stores>
-            </item>
+            </item>-->
             <item>
                 <title>Celebrity Store Logo</title>
                 <identifier>celebrity_logo</identifier>

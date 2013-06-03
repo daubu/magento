@@ -69,13 +69,7 @@
         <?php echo $this->getChildHtml('before_body_end') ?>
     </div>
 </div>
-
-<?php
-$bottom_block = Mage::getModel('cms/block')->load('celebrity_bottom_support');
-if($bottom_block->getIsActive()){
-    echo '<div class="site-block bottom">'.$this->getLayout()->createBlock('cms/block')->setBlockId('celebrity_bottom_support')->toHtml().'</div>';
-}
-?>
+ 
 
 <?php echo $this->getAbsoluteFooter() ?>
 </body>

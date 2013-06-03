@@ -29,7 +29,7 @@
 	<div class="description"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('celebrity_newsletter_text')->toHtml() ?></div>
     <form action="<?php echo $this->getFormActionUrl() ?>" method="post" id="newsletter-validate-detail">
         <div class="subscribe-input">
-	        <input type="text" name="email" id="newsletter" title="<?php echo $this->__('Your email') ?>" value="<?php echo $this->__('Your email') ?>" class="input-text required-entry validate-email" />
+	        <input type="text" name="email" id="newsletter" title="<?php echo $this->__('Your email') ?>" value="<?php echo $this->__('Nhập email') ?>" class="input-text required-entry validate-email" />
         </div>
         <button type="submit" title="<?php echo $this->__('Subscribe') ?>" class="button"><span><span><?php echo $this->__('Subscribe') ?></span></span></button>
     </form>
